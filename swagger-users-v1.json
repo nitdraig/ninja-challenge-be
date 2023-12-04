@@ -1,0 +1,185 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Users API",
+    "version": "1.0.0",
+    "title": "Users"
+  },
+  "host": "api.users.es",
+  "basePath": "/users",
+  "schemes": ["http", "https"],
+  "produces": ["application/json"],
+  "consumes": ["application/json"],
+  "paths": {
+    "/getusers": {
+      "get": {
+        "description": "Get all users",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/user"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/createUsers": {
+      "post": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "user",
+            "schema": {
+              "$ref": "#/definitions/user"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "CREATED",
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/getusersById/{userId}": {
+      "get": {
+        "description": "Get one user",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          },
+          "400": {
+            "description": "Invalid user id"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/updateUsersById/{userId}": {
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "user",
+            "schema": {
+              "$ref": "#/definitions/user"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          },
+          "400": {
+            "description": "Invalid user id"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/deleteUsersById/{userId}": {
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Invalid user id"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "user": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "birthDate": {
+          "type": "string",
+          "format": "LocalDateTime",
+          "description": "LocalDateTime type"
+        },
+        "address": {
+          "$ref": "#/definitions/address"
+        }
+      }
+    },
+    "address": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "street": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "zip": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
