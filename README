@@ -8,3 +8,49 @@ En la carpeta routes, las rutas y definiciones de cada elemento del CRUD para el
 
 LINK DE REPOSITORIO: https://github.com/nitdraig/ninja-challenge-be
 LINK DE DEPLOY: https://ninja-challenge-be.onrender.com
+
+
+TESTS
+------------------------------------
+LINK DE TESTS: https://api.postman.com/collections/30265373-504ad1f8-32f5-4788-96e2-5789215e0e31?access_key=PMAT-01HGV5XKMEXCMN2CTPT4KHS31E
+
+Para traer usuarios: http://localhost:3000/users/getusers
+    Método GET
+
+Para crear un usuario: http://localhost:3000/users/createUsers
+    Método POST
+    Body json: {
+                "name": "John Doe",
+                "email": "john@example.com",
+                "birthDate": "1990-01-01",
+                "address": {
+                    "street": "123 Main St",
+                    "state": "CA",
+                    "city": "Los Angeles",
+                    "country": "USA",
+                    "zip": "90001"
+                            }
+                }
+
+
+Para modificar usuarios: http://localhost:3000/users/updateUsersById/[IDUSUARIO]
+    Método PUT
+     Body json: {
+                "name": "John Doe",
+                "email": "john@example.com",
+                "birthDate": "1990-01-01",
+                "address": {
+                    "street": "123 Main St",
+                    "state": "CA",
+                    "city": "Los Angeles",
+                    "country": "USA",
+                    "zip": "90001"
+                            }
+                }
+
+            Se puede modificar cualquier punto de la información cargada sobre el usuario.
+
+Para eliminar usuarios: http://localhost:3000/users/deleteUsersById/[IDUSUARIO]
+    Método DELETE
+        
+        Usando el ID provisto en cada usuario, se puede eliminar el usuario en particular.
