@@ -1,0 +1,10 @@
+
+Use NODEJS en su versión 20.10.0
+Express.js en su versión 4.18.2
+UUID, para crear los ID únicos por usuarios
+Swagger-ui-express se usó para poder visualizar el swagger-users-v1.json que trae las especificaciones.solicitadas para el challenge en la ruta http://localhost:3000/api-docs
+En la carpeta models, está la estructura de creación para los usuarios.
+En la carpeta routes, las rutas y definiciones de cada elemento del CRUD para el proyecto.
+
+LINK DE REPOSITORIO: https://github.com/nitdraig/ninja-challenge-be
+LINK DE DEPLOY: https://ninja-challenge-be.onrender.com
